@@ -328,4 +328,53 @@ export let inventory = [
     },
 ];
 
+const televisionsName = inventory.map((television) => {
+    return television.name
+});
+
+console.log(televisionsName)
+
+const televisionsSoldOut = inventory.filter((television) => {
+    if (television.originalStock - television.sold === 0) {
+        return television
+    }
+});
+
+console.log(televisionsSoldOut)
+
+const televisionType = inventory.find((television) => {
+    if (television.type === "NH3216SMART")
+        return television
+});
+console.log(televisionType);
+
+const suitableTelevisionsSport = inventory.map((television) => {
+    if (television.refreshRate >= 100) {
+        return `name: ${television.brand} ${television.name}, suitable: true`
+    } else return `name: ${television.brand} ${television.name}, suitable: false`
+});
+
+console.log(suitableTelevisionsSport);
+
+const televisionScreenSixtyFiveInchAndPlus = inventory.filter((television) => {
+    for (let i = 0; i < inventory.length; i++) {
+        if (television.availableSizes[i] >= 65) {
+            return television
+        }
+    }
+
+});
+
+console.log(televisionScreenSixtyFiveInchAndPlus)
+
+const televisionContainsAmbilight = inventory.filter((television) => {
+    for (let i = 0; i < inventory.length; i++) {
+        if (television.options[4].name === "ambiLight" && television.options[4].applicable === true ) {
+            return television
+        }
+    }
+});
+
+console.log(televisionContainsAmbilight)
+
 
